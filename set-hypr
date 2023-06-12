@@ -76,6 +76,7 @@ install_stage=(
     sddm
     cups
     hplip
+    flatpak
 )
 
 #Develpor Eition
