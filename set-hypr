@@ -53,6 +53,7 @@ install_stage=(
     thunar 
     btop
     firefox
+    chrome
     thunderbird
     mpv
     pamixer 
@@ -75,6 +76,25 @@ install_stage=(
     sddm
     cups
     hplip
+)
+
+#Develpor Eition
+dev_stage=(
+base-devel
+vi
+code
+goland
+)
+
+#Extras
+extras=(
+vlc
+spotify
+wps_office
+discord
+gparted
+eog
+brave
 )
 
 for str in ${myArray[@]}; do
@@ -355,6 +375,29 @@ if [[ $STAR == "Y" || $STAR == "y" ]]; then
     echo -e "$CNT - copying starship config file to ~/.config ..."
     cp Extras/starship.toml ~/.config/
 fi
+
+
+### Install all of the dev pacakges ####
+read -rep $'[\e[1;33mACTION\e[0m] - Would you like to install few developer packages? (y,n) ' DEV
+if [[ $DEV == "Y" || $DEV == "y" ]]; then
+
+    # Dev Stage - Bunch of needed items
+    echo -e "$CNT - Dev Stage - Installing needed components, this may take a while..."
+    for SOFTWR in ${dev_stage[@]}; do
+        install_software $SOFTWR 
+    done
+
+
+### Install Some Extra pacakges ####
+read -rep $'[\e[1;33mACTION\e[0m] - Would you like to install optional packages? (y,n) ' EXTRA
+if [[ $EXTRA == "Y" || $EXTRA == "y" ]]; then
+
+    # Prep Stage - Bunch of needed items
+    echo -e "$CNT - Optional Stage - Installing needed components, this may take a while..."
+    for SOFTWR in ${extras[@]}; do
+        install_software $SOFTWR 
+    done
+
 
 
 ### Script is done ###
