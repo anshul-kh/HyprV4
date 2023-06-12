@@ -53,7 +53,7 @@ install_stage=(
     thunar 
     btop
     firefox
-    chrome
+    
     thunderbird
     mpv
     pamixer 
